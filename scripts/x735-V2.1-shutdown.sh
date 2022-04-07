@@ -36,7 +36,7 @@ done
 echo "X735 Shutting down..."
 
 #Set internal biases and pull the pin up
-gpioset -B pull-up -m signal gpiochip0 $BUTTON_PIN=1
+gpioset -B pull-up gpiochip0 $BUTTON_PIN=1
 
 #Restore the pin to the low state
 gpioset -B pull-down gpiochip0 $BUTTON_PIN=0
