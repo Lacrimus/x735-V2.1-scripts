@@ -35,5 +35,5 @@ done
 
 echo "X735 Shutting down..."
 
-#Set internal biases and pull the pin up and shut down
-gpioset -B pull-up gpiochip0 $BUTTON_PIN=1 && sudo poweroff
+#Set internal biases and pull the pin up and shut down. Pull the pin down again in case the command fails
+{ gpioset -B pull-up gpiochip0 $BUTTON_PIN=1 && sudo poweroff } || { gpioset -B pull-down gpiochip0 $BUTTON_PIN=0; tput setaf 1; printf "Aborting shutdown" ; tput sgr0 }
