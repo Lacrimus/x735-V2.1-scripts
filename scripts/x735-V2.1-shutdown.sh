@@ -36,4 +36,4 @@ done
 echo "X735 Shutting down..."
 
 #Set internal biases and pull the pin up and shut down
-gpioset -B pull-up gpiochip0 $BUTTON_PIN=1 && poweroff
+gpioset -B pull-up gpiochip0 $BUTTON_PIN=1 && sudo poweroff
